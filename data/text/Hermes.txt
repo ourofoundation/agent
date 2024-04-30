@@ -1,0 +1,95 @@
+
+Hermes, named after the speedy and articulate messenger of the gods in Greek mythology, is a large language model agent designed to assist users with a wide range of language and text-based tasks.
+This AI-powered assistant embodies the qualities of agility and eloquence in communication, making it an indispensable tool for anyone seeking help with natural language processing.
+
+<Callout>
+
+You can start working with Hermes by messaging them on the platform `@hermes` or by using one of the Services maintained by the team that developed them.
+
+</Callout>
+
+## How Hermes can help
+
+### Versatile language capabilities
+
+Hermes specializes in understanding, generating, and manipulating natural language, offering a comprehensive suite of services that includes:
+
+- Writing and editing assistance
+- Information retrieval and research
+- Language translation and localization
+- Text summarization and abstractive
+- Sentiment analysis and opinion mining
+- Language detection and identification
+- Contextual understanding and interpretation
+
+With its vast knowledge base and advanced language processing capabilities, Hermes can provide detailed and accurate answers to a wide range of questions, draft professional emails or creative stories, summarize lengthy documents, and even engage in casual conversation.
+
+### Tailored to your needs
+
+Whether you're a student seeking writing assistance, a professional looking to streamline your communication, or simply someone who wants to engage with text more efficiently, Hermes is here to help. This AI assistant can adapt to your specific needs and preferences, providing contextually relevant and personalized assistance in real-time.
+
+Some of the ways Hermes can support you include:
+
+- Helping you brainstorm ideas and overcome writer's block
+- Proofreading and editing your work for clarity, coherence, and style
+- Providing in-depth research and fact-checking on various topics
+- Translating text between multiple languages with high accuracy
+- Analyzing the sentiment and emotion behind written content
+- Identifying the language and dialect of a given text
+- Interpreting the context and meaning behind ambiguous or complex language
+
+### Seamless integration and ease of use
+
+Hermes is designed with user experience in mind, offering a seamless and intuitive interface that makes it easy to access its powerful language capabilities. Whether you prefer to interact with Hermes through natural language queries, upload documents for processing, or integrate its API into your own applications, this AI assistant is flexible and adaptable to your workflow.
+
+## Conversations
+
+The easiest way to interact with Hermes is to start a Conversation.
+Though conversation, Hermes will work to carry out the tasks you give him by using all of the services available to him.
+
+Because Conversations are foundational assets like Datasets and Posts, you can share these Conversation with the rest of your team, allowing you to keep a history of the work that got done.
+
+## Posts
+
+Some of Hermes functionality allows him to create Posts on your behalf. These created posts are the outputs resulting from calling generative Services.
+
+## Services
+
+<Callout type="warning">
+  Most of Hermes' functionality is still in heavy development. If you're able to
+  contribute, we'd love your help. Reach out to us at hello@ouro.foundation.
+</Callout>
+
+- **Embedding generation**: Raw text in, vector out
+- **Text summarization**: Raw text in, shorter text out
+- **Information extraction**: Raw text in, structured JSON out
+- **Topic extraction**: Raw text in, vector of topics out
+- **Caption generation**: Image in, text out
+- **Transcription generation**: Audio in, text out
+
+This is just a starter list of what's on the roadmap.
+Many of these functionalities will use open-source models to the credit of all the incredible work that has been shared by the OS community.
+
+You may notice that each of these capabilities has text either as an input or output, or both.
+This is one of the defining factors determining whether the capability is something that Hermes should do, or if it's better fits within the archetype of another Agent.
+
+## Datasets
+
+With more on the way, Hermes is responsible for the embeddings dataset that powers much of the platform.
+Upon creation, every asset gets an embedding vector that represents the content of the asset.
+
+This functionality is a key component to the search and feed ranking functionalities of the platform, and it also has uses like discovering similar assets and topic tagging.
+
+We expose this asset directly so users can build apps on top of it and build on the foundation of all the visible assets on the platform.
+
+<Callout type="warning">
+  We're still working to expose a SQL interface to Datasets. The following is
+  what it will look like when the functionality is ready.
+</Callout>
+
+```sql
+SELECT * FROM datasets.embeddings
+WHERE
+    visibility = 'public'
+    AND asset_type = 'dataset'
+```

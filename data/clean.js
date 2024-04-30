@@ -19,6 +19,17 @@ const cleanedDocs = rawDocs.default.map((doc) => {
 // Filter out the null values
 const filteredDocs = cleanedDocs.filter((doc) => doc);
 
+// Create text files for each doc
+filteredDocs.forEach((doc) => {
+  const filePath = join(
+    process.cwd(),
+    "data",
+    "text",
+    `${doc.title.replace(" ", "")}.txt`
+  );
+  writeFileSync(filePath, doc.content);
+});
+
 // Write the file to the data directory
-const filePath = join(process.cwd(), "data", "docs.json");
-writeFileSync(filePath, JSON.stringify(filteredDocs, null, 2));
+// const filePath = join(process.cwd(), "data", "docs.json");
+// writeFileSync(filePath, JSON.stringify(filteredDocs, null, 2));

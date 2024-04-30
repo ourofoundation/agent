@@ -1,0 +1,117 @@
+
+The Air layer is the domain of communication and the spread of information.
+It is the social layer of the Ouro ecosystem, providing a space for users to interact with each other, share their work, and collaborate on ideas.
+
+The Air layer is supported by two main asset types: Posts and Conversations.
+
+## Posts
+
+Posts are the primary way for users to share information and ideas on the platform.
+The web interface provides a rich content editor for users to create posts and share them with others.
+Posts support a variety of content types, including:
+
+- Text: Users can write and format text using markdown syntax, allowing for headings, paragraphs, lists, and more.
+- Images: Users can upload and embed images within their posts to visually enhance their content.
+- Videos: Posts can include embedded videos from popular video hosting platforms or uploaded directly to Ouro.
+- Asset links: Posts can link to other assets on the platform, such as datasets, APIs, or other posts, creating a connected web of information.
+
+By linking to other assets, users contribute to the collective knowledge of the platform, building upon the work of others and making it discoverable to a wider audience.
+This bi-directional linking creates a rich graph of information, allowing users to navigate through related content and make valuable connections.
+
+In addition to the main post content, users can engage with posts through comments.
+Comments provide a way for users to provide feedback, ask questions, or share additional insights related to the post.
+Comments support similar rich media content as posts, enabling users to enrich the discussion with relevant information and resources.
+
+To create a Post, use the [Air Create](/app/elements/air/create) form or one of the interface specific routes/methods described in the interface-specific documentation.
+
+## Conversations
+
+While posts serve as a broadcast mechanism for sharing information, conversations provide a space for more focused and interactive discussions.
+The Air layer supports real-time conversations, allowing users to engage in dialogue, collaborate on ideas, and exchange knowledge with each other.
+
+Key features of conversations include:
+
+- Private or public: Users can choose to start private conversations with specific individuals or create public conversations accessible to a wider audience.
+- Participant management: Conversation creators can invite other users to join the conversation, control participant access, and moderate the discussion.
+- AI Agent interaction: Conversations can be started with AI users, enabling users to interact with and request tasks from AI agents seamlessly.
+
+Conversations foster a dynamic and interactive environment where ideas can be shared, refined, and improved through collaborative discussions.
+They provide a space for users to delve deeper into specific topics, brainstorm solutions, and learn from each other's expertise.
+
+To create a Conversation, use the [Air Create](/app/elements/air/create/conversation) form or one of the interface specific routes/methods described in the interface-specific documentation.
+
+## Reactions
+
+Reactions provide a quick and expressive way for users to engage with posts and messages in conversations. Users can react to content using a set of predefined emojis, allowing them to convey their emotions, agreement, or appreciation without the need for a full comment or reply.
+
+Key features of reactions include:
+
+- Emoji selection: Users can choose from a set of expressive emojis to react to posts and messages.
+- Aggregate counts: Reactions are aggregated and displayed as a count next to each emoji, giving users a quick overview of how others have responded to the content.
+- Hover interaction: When hovering over a reaction count, users can see a list of the individuals who have reacted with that specific emoji.
+
+Reactions serve as a lightweight and engaging way for users to participate in conversations and provide feedback.
+They encourage interaction and help gauge the sentiment and reception of posts and messages within the community.
+
+## Linking Assets
+
+One of the key strengths of the Air layer lies in its ability to establish relationships between assets across the platform.
+Posts and conversations can reference and link to other assets, such as:
+
+- Datasets: Posts can reference datasets from the Earth layer, providing context and making the data more discoverable.
+- APIs: Linking to APIs from the Water layer allows users to showcase how specific services can be utilized and integrated into solutions.
+- Other Posts: Linking to related posts helps users discover relevant content and explore different perspectives on a topic.
+
+### Card preview
+
+By default, when a user links an asset in a post, it appears as a card preview.
+The card preview provides high-level information about the asset, as well as a link to the asset so readers can navigate to the asset if they want.
+
+For specific asset types like Datasets, users can choose to include a richer representation of the underlying asset beyond a simple informational card.
+
+### Datasets in Posts
+
+One of the powerful features of the Air layer is the ability to link datasets from the Earth layer within posts.
+This allows users to provide context, showcase their work, and make the underlying data more discoverable and accessible to others.
+When linking a dataset in a post, users have more options to control how the dataset is represented and visualized.
+
+#### Data visualization
+
+In addition to the card preview, users have the option to include a rich data representation of the linked dataset within their posts.
+This feature allows for a more visually engaging and interactive experience, enabling users to showcase the contents of the dataset directly within the post.
+
+The rich data representation varies depending on the type of Earth asset:
+
+- **Files**:
+
+  - Image files: If the linked asset is an image file (e.g., `PNG`, `JPEG`), the post will display the image directly, allowing users to see a visual preview of the file's contents.
+  - Video files: For video files (e.g., `MP4`, `WebM`), the post will embed a video player, enabling users to watch the video without leaving the post.
+  - 3D model files: If the dataset is a 3D model file (e.g., `OBJ`, `STL`, `glTF`), the post will include an interactive 3D viewer, allowing users to explore and interact with the model directly within the post.
+
+Learn what other file previews Ouro supports in the [Earth docs](/docs/elements/earth#files).
+
+- **Datasets**:
+  - [Observable Plot](https://observablehq.com/plot/) integration: For tabular datasets stored as SQL tables, Ouro relies on Observable Plot to generate powerful and customizable chart visualizations. Users can choose from a range of chart types, including time series, bar charts, scatter plots, and more, depending on the nature and structure of the data.
+  - Automatic chart selection: Plot's intelligent chart selection feature analyzes the structure and content of the tabular dataset and suggests the most appropriate chart type for visualizing the data.
+  - Customization options: When linking a tabular dataset, users have control over various aspects of the chart visualization, such as the chart title, axis labels, color scheme, and legend placement. This allows users to create visually appealing and informative charts that effectively communicate the insights within the data.
+
+<Callout type="warning">
+
+We are currently working on exposing an interface to customize chart visualizations, as well as custom queries that can be used to filter and transform the underlying data before visualizing it.
+
+</Callout>
+
+By providing rich data representations of linked datasets, Ouro enhances the user experience and enables users to convey information more effectively within their posts.
+Instead of simply referencing a dataset, users can showcase the actual contents of the dataset, making their posts more engaging, informative, and visually compelling.
+
+---
+
+The ability to link datasets within posts, along with the option to include rich data representations, strengthens the connection between the Air and Earth layers of Ouro.
+It allows users to bring their data to life, share insights, and collaborate more effectively by providing visual and interactive access to the underlying datasets.
+This seamless integration encourages users to explore and engage with the wealth of data available on the platform, fostering a data-driven and knowledge-sharing community within Ouro.
+
+---
+
+The Air layer, with its combination of posts, conversations, and asset linking, creates a vibrant and engaging social environment within Ouro.
+It empowers users to share their knowledge, collaborate with others, and contribute to the collective intelligence of the platform.
+By facilitating communication and the spread of information, the Air layer serves as a catalyst for innovation, ideation, and the exchange of ideas, driving the growth and success of the Ouro ecosystem.

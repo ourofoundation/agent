@@ -1,0 +1,36 @@
+
+<div className="grid sm:grid-cols-1 gap-4 mt-6">
+
+<Card href="/docs/support/concepts/forecasting">
+
+### Forecasting
+
+Learn the fundamentals of forecasting in data science.
+
+<hr></hr>
+
+- Understanding the concept of forecasting
+- Types of forecasting models
+- Data collection and preparation
+- Analyzing and interpreting results
+- Applications of forecasting
+
+</Card>
+
+<Card href="/docs/support/concepts/nlp">
+
+### Natural Language Processing
+
+Learn how NLP enables computers to understand, interpret, and respond to human language.
+
+<hr></hr>
+
+- Text processing techniques
+- Sentiment analysis, translation, and summarization
+- Word embeddings, RAG, and search
+- Large language models
+- Real-world applications
+
+</Card>
+
+</div>

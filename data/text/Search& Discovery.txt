@@ -1,0 +1,76 @@
+
+Ouro is designed to empower users to find the content, resources, and collaborators they need to achieve their goals. Our search and discovery features are central to this mission, providing powerful tools and intuitive interfaces to help users navigate the vast ecosystem of knowledge and expertise available on the platform.
+
+## Search
+
+Ouro's search functionality goes beyond simple keyword matching, leveraging advanced techniques to deliver accurate and relevant results. At the core of our search capabilities are embeddings, which are high-dimensional vector representations of content that capture semantic meaning and context.
+
+When a user enters a search query, Ouro uses these embeddings to find content that is semantically similar to the query, even if the exact keywords are not present. This means that users can discover relevant assets, posts, and profiles that they might have otherwise missed, based on the underlying concepts and ideas expressed in the content.
+
+In addition to semantic search, Ouro provides a range of filters and refinement options to help users narrow down their search results. Users can filter by various criteria, such as:
+
+- Asset type (e.g., datasets, services, posts, profiles)
+- Tags and categories
+- Creation date range
+- Popularity and engagement metrics
+- Creator or organization
+- Licensing and monetization options
+
+By combining semantic search with powerful filtering capabilities, Ouro enables users to quickly and easily find the content they need, whether it's a specific dataset, a service to solve a particular problem, or an expert in a given field.
+
+## Discovery
+
+While search is invaluable for finding specific content, Ouro also recognizes the importance of serendipitous discovery and exploration. Our discovery features are designed to surface relevant and engaging content to users, even when they don't have a specific query in mind.
+
+### Personalized feed
+
+Ouro's social media-style feed is a central hub for discovering new content and staying up-to-date with the activities of the users and organizations you follow. The feed employs a sophisticated content ranking system that takes into account various factors, such as:
+
+- Relevance to your interests and past engagement
+- Timeliness and freshness of the content
+- Popularity and engagement levels within the community
+- Diversity and novelty of the content
+
+By combining these factors, Ouro's ranking algorithm strives to deliver a personalized and engaging feed that balances relevance, quality, and serendipity. The feed is continually updated in real-time, ensuring that users always have access to the latest and most relevant content.
+
+### Discovery page
+
+In addition to the personalized feed, Ouro offers a dedicated Discovery page that allows users to explore content by categories, topics, and trends. The Discovery page provides a curated overview of the most popular and interesting content on the platform, organized into easily browsable sections.
+
+Users can sort and filter the content on the Discovery page by various criteria, such as:
+
+- Asset type (e.g., datasets, services, posts, profiles)
+- Categories and tags
+- Trending topics
+- Most popular and engaging content
+- Newest and recently updated content
+
+The Discovery page may also highlight curated collections and featured content, such as:
+
+- Staff picks and editor's choice selections
+- Thematic collections around specific topics or events
+- Spotlight features on notable creators and organizations
+- Trending challenges and collaborations within the community
+
+By providing a rich and diverse set of discovery options, Ouro encourages users to explore new areas of interest, find unexpected connections, and engage with the vibrant community of creators and innovators on the platform.
+
+## Content recommendations
+
+To further enhance the discovery experience, Ouro employs collaborative filtering and recommendation algorithms that suggest personalized content based on a user's interests, interactions, and similarities with other users.
+
+These recommendations can appear in various contexts, such as:
+
+- "Similar assets" suggestions on asset pages
+- "Users you may want to follow" recommendations
+- "Projects you might be interested in" notifications
+- Personalized email digests and notifications
+
+By leveraging the collective intelligence of the Ouro community, these recommendation systems help users discover valuable content and connections that they might have otherwise missed, fostering serendipity and facilitating collaboration.
+
+## Ouro's commitment to continuous improvement
+
+We are committed to continuously improving our search and discovery capabilities to provide the best possible experience for our users.
+We invest in ongoing research and development to refine our algorithms, incorporate user feedback, and stay at the forefront of information retrieval and recommendation technologies.
+
+As the Ouro ecosystem grows and evolves, we will continue to innovate and introduce new features and enhancements to help users navigate the wealth of knowledge and expertise available on the platform.
+Our goal is to empower users to find the content and connections they need to learn, grow, and achieve their goals, while fostering a vibrant and collaborative community of creators and innovators.

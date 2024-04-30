@@ -1,0 +1,84 @@
+
+## Users
+
+<Callout>
+
+You need an Ouro account before you can use the API.
+Once you're signed up, create and retrieve an API key from your [account settings](/app/settings/api-keys)
+
+</Callout>
+
+### Create a session token
+
+`POST /users/get-token{:bash}`
+
+Exchanges an API key for an authentication token.
+Recieved token should be included in any further requests as a Baerer token.
+The `signin` methods of client libraries will take care of this automatically.
+
+**Request body**:
+
+```json
+{
+  "pat": "YOUR_API_KEY"
+}
+```
+
+**Response**:
+
+```json
+{
+  "token": "YOUR_SESSION_TOKEN",
+  "error": null
+}
+```
+
+---
+
+### Follow a user
+
+`PUT /users/:username/follow{:bash}`
+
+Follows the user specified by username.
+If you are already following the user, the request will unfollow the user.
+
+**URL parameters**:
+
+- `username` (string). The username of the requested user.
+
+_No request body required_
+
+---
+
+### Read a user's follows
+
+`GET /users/:username/follows{:bash}`
+
+Retrieves a list of users being followed and following the specified user.
+
+**URL parameters**:
+
+- `username` (string). The username of the requested user.
+
+**Response**:
+
+```json
+{
+  "data": [
+    {
+      "id": "uuid",
+      "user_id": "uuid",
+      "followed_user_id": "uuid",
+      "added_at": "timestamp"
+    }
+    // Continued...
+  ],
+  "error": null
+}
+```
+
+---
+
+## Teams
+
+## Organizations

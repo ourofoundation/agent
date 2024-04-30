@@ -1,0 +1,113 @@
+
+As a monetized creator, you have the opportunity to earn income, gain recognition, and make a significant impact by contributing your expertise and creative outputs to the Ouro ecosystem.
+
+## Why become a monetized creator?
+
+Becoming a monetized creator on Ouro offers a range of compelling benefits.
+Primarily, you can earn income from your contributions by monetizing your datasets, APIs, and solutions.
+Set your own prices and terms for access to your valuable resources, and receive payments directly through the platform, powered by Stripe.
+You gain recognition for your expertise by showcasing your skills and knowledge through high-quality assets.
+Build a reputation as a trusted and valuable contributor within the Ouro community, and attract collaborators, clients, and opportunities through your demonstrated expertise.
+
+As a monetized creator, you also gain access to exclusive features and support.
+Utilize advanced analytics and reporting tools to track your earnings and asset performance, receive priority support and guidance from the Ouro team to optimize your monetization strategies, and unlock exclusive features and resources designed to help you succeed.
+
+Becoming a monetized creator allows you to achieve financial freedom and passive income.
+Turn your expertise and creative outputs into a reliable source of income, generate passive revenue streams that continue to grow as your assets are utilized by the community, and build a portfolio of monetized assets that provide long-term financial stability and freedom.
+
+As a monetized creator, you can leverage your skills for value creation.
+Amplify the impact of your work by making it accessible to a wide audience through the Ouro platform, contribute to the growth and success of businesses and individuals by providing them with valuable resources, and be part of a thriving ecosystem where your creations drive innovation and solve real-world challenges.
+
+## Monetization strategies
+
+Ouro has two different pricing models that users can choose to monetize their assets with.
+
+- **Pay-for-usage**: Users pay a variable-cost each time they use the asset, depending on how much usage they need. This is useful for assets that are used frequently and have an associated cost to maintain, like hardware resource time and energy.
+- **Pay-to-unlock**: This model is a one-time fee that unlocks the asset for the user. This is useful for assets that are used infrequently, but are still valuable.
+
+In general, Earth layer assets are Pay-to-unlock, Water and Fire are Pay-for-usage, and Air is a mixture of both. See the table below for more details.
+
+| Element | Asset        | Monetization      |
+| ------- | ------------ | ----------------- |
+| `Earth` | File         | Pay-to-unlock     |
+| `Earth` | Dataset      | Pay-to-unlock     |
+| `Earth` | Composite    | Pay-to-unlock     |
+| `Water` | Route        | **Pay-for-usage** |
+| `Air`   | Post         | Pay-to-unlock     |
+| `Air`   | Conversation | **Pay-for-usage** |
+| `Fire`  | Blueprint    | **Pay-for-usage** |
+
+## Promoting your assets
+
+To maximize the visibility and success of your monetized assets, focus on optimizing your asset listings with clear and compelling descriptions, showcasing the benefits and use cases, and including relevant keywords to improve discoverability. Engage with the Ouro community by participating in discussions and collaborating on projects to build relationships and attract potential customers.
+
+Use the Air layer to share your expertise through informative posts, tutorials, or case studies that demonstrate the value and applications of your monetized assets.
+Utilize social media platforms to reach a wider audience and drive traffic to your assets.
+Consider running limited-time promotions or offering discounts to incentivize users to try your monetized assets.
+Seek partnerships and integrations with other creators or platforms to cross-promote your assets and tap into new user bases.
+
+## Tracking your performance
+
+<Callout type="warning">
+
+This functionality is currently a work in progress. You can view a summary of your sales activity from your [payment settings](/app/settings/payments). Click the **Manage account**
+button to load your Stripe dashboard.
+
+</Callout>
+
+Ouro provides comprehensive analytics and reporting tools to help you monitor the performance of your monetized assets and track your earnings. Your monetized creator dashboard offers a high-level overview of your total earnings, asset views, and sales metrics.
+Dive deeper into the performance of individual assets, including revenue generated, user engagement, and conversion rates.
+
+Access detailed payout reports that break down your earnings by asset, time period, and payment method, and gain insights into the users who are purchasing or subscribing to your assets. Regularly review your performance data to identify trends, optimize your monetization strategies, and make informed decisions to grow your earnings.
+
+## Support and resources
+
+As a monetized creator, you have access to dedicated support and resources to help you succeed. Ouro provides comprehensive guides and best practices for effectively monetizing your assets, setting prices, and optimizing your listings. Connect with other monetized creators through exclusive forums, events, and mentorship programs to learn from their experiences and collaborate on initiatives.
+
+Receive fast and prioritized support from the Ouro team for any technical issues, payment inquiries, or general assistance. Access a library of educational resources, including webinars, tutorials, and case studies, to enhance your skills and stay up-to-date with the latest monetization strategies.
+
+## Terms and policies
+
+As a monetized creator, it's essential to understand and comply with Ouro's terms and policies related to monetization.
+{/* Review and accept the Ouro Creator Agreement, which outlines the rights, responsibilities, and obligations of monetized creators. */}
+Familiarize yourself with the payment terms, including payout schedules, fees, and any applicable taxes.
+
+- [Terms of Use](/legal/terms)
+- [Privacy Policy](/legal/privacy)
+
+Ensure that your monetized assets adhere to Ouro's content guidelines and do not infringe upon any intellectual property rights.
+{/* Clearly communicate your refund policy to users and handle any refund requests in a timely and professional manner. */}
+Protect the privacy and data of your users in accordance with Ouro's privacy policy and any applicable data protection regulations.
+
+## Frequently asked questions
+
+1. **How do I receive payments for my monetized assets?**
+
+Payments are processed through Stripe and deposited directly into your connected bank account. You can request a payout of settled transactions from your payment settings.
+
+2. **What fees does Ouro charge for monetized assets?**
+
+Ouro charges a platform fee of 10% on the revenue generated from your monetized assets.
+This fee covers the costs of transaction processing, operating costs, and providing support and resources to monetized creators.
+
+3. **Can I offer my assets for free and monetize them later?**
+
+Yes, you can initially offer your assets for free to build traction and then introduce monetization options later.
+You have the flexibility to change your pricing and monetization settings at any time.
+
+4. **How do I handle user support and inquiries for my monetized assets?**
+
+As a monetized creator, you are responsible for providing support to users who purchase your assets.
+Make sure to provide clear contact information and respond to user inquiries in a timely and helpful manner.
+
+5. **Can I monetize assets that I have already shared on other platforms?**
+
+Yes, you can monetize assets that you have previously shared on other platforms, as long as you hold the necessary rights and permissions.
+Make sure to comply with any terms or restrictions set by the other platforms.
+
+If you have any further questions or need assistance with monetization, don't hesitate to reach out to the Ouro support team.
+
+## Start monetizing your expertise today
+
+Becoming a monetized creator on Ouro opens up exciting opportunities to earn income, gain recognition, and make a meaningful impact in the community.
+By contributing your valuable datasets, APIs, and solutions, you can unlock new revenue streams and leverage your skills to drive innovation.

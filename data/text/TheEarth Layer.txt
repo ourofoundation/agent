@@ -1,0 +1,134 @@
+
+The Earth layer in Ouro serves as the foundation for storing and managing data assets.
+It is the foundation of the Ouro ecosystem, providing a stable and secure environment for the rest of the platform to build upon.
+
+It consists of two primary asset types: files and datasets.
+
+## Files
+
+Files in Ouro are similar to traditional file storage systems.
+They can be of any format and are stored as-is, without any additional processing or manipulation.
+Files are suitable for storing unstructured data, such as documents, images, audio, or video.
+
+Users can upload files of any type, up to 5GB in size.
+
+<Callout type="warning">
+  We are working to support larger file uploads in the near future. If you have
+  a specific need, please let us know at [/contact](/contact).
+</Callout>
+
+For many file types, users using the web interface can see rich media visuals of their file, like an image or video.
+We also support views for a wide range of less common file types:
+
+- Interactive 3D views for supported file formats
+  - `.glb`, `.stl`, `.obj`
+- Interactive circuit diagram schematic views for supported file formats
+  - `.kicad_sch`
+- Document views for supported file formats
+  - `.pdf`
+
+Ouro provides these file views so that the content on the platform is as rich and interactive as it can be.
+We are happy to extend support for additional file formats if a web visualization can be created.
+
+For some file types, we have automatic processing that will convert the File into a Dataset.
+If you upload a CSV file, the platform will automatically convert it into a Dataset.
+See the [From File](#water) section below to learn more.
+
+While raw files can be sufficient for certain use cases, there are many scenarios where working with structured data is more beneficial.
+This is where Datasets become a useful asset.
+
+## Datasets
+
+Datasets, on the other hand, are structured tabular data assets backed by SQL tables.
+They provide a more organized and queryable way to store and access data.
+Datasets are ideal for storing structured information, such as sensor readings, transaction records, or user profiles.
+
+Datasets in Ouro provide a powerful way to store, organize, and query structured data using SQL tables. By leveraging the capabilities of datasets, you can:
+
+1. Enforce a consistent schema: Datasets allow you to define a clear structure for your data, specifying column names, data types, and constraints.
+2. Perform complex queries: You can use SQL to perform advanced querying, filtering, and aggregation operations on your data.
+3. Integrate with other tools: Datasets can be easily integrated with various data analysis and visualization tools that support SQL connectivity.
+4. Enable collaboration: Datasets provide a centralized and structured way to store and share data within your organization.
+5. Scale and optimize performance: Ouro's dataset infrastructure is designed to handle large volumes of data efficiently.
+
+For each Dataset, Ouro exposes a REST API that allows users to interact with the data. This API is automatically generated based on the schema of the Dataset, so users can immediately start working with the data without having to write any code.
+
+## Creating assets
+
+There are three main methods for creating assets in the Earth layer.
+These actions are available from any interface, including the web interface, Web API, or a programming language.
+
+For interface specific documentation and syntax specifics, visit the associated docs.
+
+- [Web API](/docs/developers/api/elements#earth)
+- [Programming interface](/docs/developers/client-libraries)
+
+### From a file
+
+This method allows you to create an Earth asset by uploading a file. There are two possible outcomes when using this route:
+
+1. If the uploaded file is not a tabular file format, it will be stored as a regular file asset, without any further processing.
+
+2. If the uploaded file is a tabular file format, Ouro will automatically load the data from the file into a new Dataset. The structure of the dataset will be inferred from the column headers and data types.
+
+Files that will automatically be converted into Datasets:
+
+- `CSV`
+- ~~`JSON`~~ _Coming soon_
+- ~~`Parquet`~~ _Coming soon_
+
+To create an Earth asset using this method, use the [Earth Create](/app/elements/earth/create) form or one of the interface specific routes/methods described in the interface-specific documentation.
+
+<Callout>
+  Users can work around the technical limit of 5GB per file by uploading their
+  dataset in 5GB chunks and adding each chunk to the Dataset.
+</Callout>
+
+### From a schema
+
+This method enables you to create a dataset by providing a `CREATE TABLE` SQL definition.
+This allows you to specify the exact structure, column names, and data types of the dataset.
+
+This method of asset creation is only for creating Datasets.
+
+To create an Earth asset using this method, use the [Earth Create](/app/elements/earth/create) form or one of the interface specific routes/methods described in the interface-specific documentation.
+
+This route allows you define a Dataset like the following example:
+
+```sql
+CREATE TABLE datasets.my_dataset (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  age INTEGER,
+  email VARCHAR(255)
+);
+```
+
+After you've created the Dataset, you'll need to load the data in a second step.
+
+<Callout type="warning">
+  More information about the data loading and update process is coming soon.
+</Callout>
+
+### From a service
+
+This method allows you to create a dataset by providing a Service Route from the Water layer.
+Ouro will make a request to the specified service route on your behalf, retrieve the API response data, and load it into a new dataset.
+
+Structure and schema of the dataset will be inferred from the API response.
+The location of the data in the response can be configured, however the defined location must be an array of objects, each following the same schema.
+
+To create an Earth asset using this method, use the [Earth Create](/app/elements/earth/create) form or one of the interface specific routes/methods described in the interface-specific documentation.
+
+Ouro will handle the process of making the request to the service route, parsing the response data, and creating a new dataset with the retrieved data.
+
+---
+
+These are the three main ways to create assets in the Earth layer. Choose the appropriate route based on your data source and requirements. Whether you have a file, a predefined schema, or want to import data from a service, Ouro provides flexible options to populate your Earth layer with valuable data assets.
+
+## Machine understanding
+
+When a new asset is created, Ouro will automatically analyze the asset and generates a plain text description that captures its key features and content.
+This description is then embedded alongside the asset's metadata, making it easier for both human users and AI agents to discover, understand, and work with the asset.
+
+For more information about the Earth layer data processing capabilities, see the [Water](/docs/elements/water) section.

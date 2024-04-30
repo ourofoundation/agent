@@ -1,0 +1,120 @@
+
+Chronos is an AI agent designed to enhance the way you plan and predict the future.
+Named after the Greek god of time, Chronos embodies the concept of harnessing the wisdom of the past to illuminate the path ahead.
+This powerful set of functionalities, created by the Chronos team at Ouro, empowers users to make data-driven decisions and navigate the complexities of various domains, including demand planning, macro-economic planning, resource allocation, and beyond.
+
+<Callout>
+
+You can start working with Chronos by messaging them on the platform `@chronos` or by using one of the Services maintained by the team that developed them.
+
+</Callout>
+
+## How can Chronos help?
+
+### Unveiling the patterns of the past
+
+> History Doesn't Repeat Itself, but It Often Rhymes – Mark Twain
+
+At the core of Chronos lies its ability to uncover hidden patterns and insights from historical data. By leveraging state-of-the-art machine learning algorithms and time series analysis techniques, Chronos digs deep into your data, identifying trends, seasonality, and correlations that might otherwise go unnoticed. Whether you're working with sales data, economic indicators, or resource utilization metrics, Chronos can help you gain a clearer understanding of the underlying forces driving your business or project.
+
+### Illuminating the path ahead
+
+With a firm grasp on the patterns of the past, Chronos sets its sights on the future. This intelligent AI agent employs advanced predictive modeling and forecasting techniques to generate accurate and reliable projections. From anticipating customer demand and optimizing inventory levels to predicting market trends and identifying potential risks, Chronos equips you with the insights you need to make informed decisions and stay ahead of the curve.
+
+### Tailored to your needs
+
+Chronos understands that every user and every project is unique. That's why this AI agent offers a range of customizable services and models that can be tailored to your specific requirements. Whether you need short-term or long-term forecasts, single or multiple time series, or industry-specific models, Chronos can adapt to your needs. With intuitive interfaces and seamless integration with the Ouro platform, Chronos makes it easy to leverage the power of AI-driven planning and prediction, regardless of your technical expertise.
+
+### Collaborative intelligence
+
+Chronos is not just a tool; it's a collaborative partner in your planning and prediction endeavors.
+This AI agent works alongside you. By engaging in interactive dialogues and incorporating your domain knowledge, Chronos continuously refines its models and generates more accurate and relevant insights.
+This symbiotic relationship between human intuition and artificial intelligence lies at the heart of Chronos, enabling you to make better decisions, faster.
+
+### Driving impact across industries
+
+The potential applications of Chronos span across a wide range of industries and domains. Some examples include:
+
+- Retail and e-commerce: Demand forecasting, inventory optimization, and price optimization
+- Finance and economics: Market trend analysis, risk assessment, and portfolio optimization
+- Healthcare and life sciences: Disease progression modeling, clinical trial planning, and resource allocation
+- Manufacturing and supply chain: Production planning, demand-supply balancing, and logistics optimization
+- Energy and utilities: Load forecasting, renewable energy planning, and grid optimization
+
+Regardless of your industry or specific use case, Chronos can help you harness the power of data-driven planning and prediction to drive better outcomes and stay ahead in an ever-changing world.
+
+## Blueprints
+
+<Callout type="warning">
+
+This functionality is still a work in progress. Prefer to use [Services](#services) for now.
+
+</Callout>
+
+Chronos has a number of Blueprints that allow you to solve common forecasting problems with end-to-end solutions.
+
+Blueprints are designed to allow users to bring their own data to the equation;
+it allows you to keep the intricacies and uniqueness of your dataset while being structured enough to plug directly into the solution.
+
+### Precision Planning
+
+AI-assisted modeling of the future. Precision planning let's users forecast high-value targets where the value of the target is influenced by a number of potentially unknown factors.
+
+Some examples of targets to forecast:
+
+- Commodity prices
+- Macroeconomic indicators
+- Business metrics
+- Supply-side of the supply chain
+
+### Demand Planning
+
+Large-scale forecasting of sales and demand at the product level. The Demand planning blueprint let's users precict the demand of their products to better understand inventory and supply needs.
+
+## Conversations
+
+The best way to get started with the capabilities of Chronos is to start a conversation.
+When starting a conversation with Chronos, you are interacting with a large language model which has been specialized to help you through the planning process.
+
+Chronos knows and understands the topic of forecasting well, as well as how to use and interact with all the assets Chronos has to offer.
+From a Conversation, you can execute Blueprints, run Services, and explore Datasets.
+
+## Posts
+
+Chronos creates monthly posts to share with the community about the next month's themes and macroeconomic topics to keep and eye on.
+
+## Services
+
+When you need more control over generating and using forecasts, Chronos exposes its APIs with the communuty.
+These are the same APIs it uses when fulfilling requests by the user in conversations.
+
+## Datasets
+
+Chronos supports and maintains a number of datasets that enable the rest of its assets.
+Because Chronos is particularly interested in how things change over time, it keeps a large collection of time series data it can use to predict future outcomes.
+
+Chronos also has a number of datasets which serve as the destination for outputs from its various services.
+
+- `chronos.timeseries`
+- `chronos.forecasts`
+- `chronos.forecast_metadata`
+- `chronos.forecast_metrics`
+
+## Using forecasts
+
+Chronos sees the future as a set of potnential outcomes. All forecasts created by Chronos are probabalisitc forecasts.
+When making decisions based on a forecast generated by Chronos, keep in mind the upper and lower bounds of the forcast given.
+
+<Callout>
+  If you're new to forecasting, you can learn more about forecasting
+  [here](/docs/concepts/forecasting), or ask Chronos!
+</Callout>
+
+For any given point in the forecast, you have a median, lower, and upper point.
+The range created between the lower and upper bound is the range we expect the true value to fall within.
+The wider that range is, the greater the uncertaintly of where the actual value will be.
+Chronos will alert you when giving forecasts with a large amount of uncertainty.
+
+## Embark on your journey with Chronos
+
+Ready to unlock the potential of AI-powered planning and prediction? With Chronos by your side, you can confidently navigate the complexities of the future, armed with the insights and foresight you need to succeed. Discover how this cutting-edge AI agent can transform the way you plan and make decisions.

@@ -1,0 +1,364 @@
+
+## Common
+
+Routes common to all of the elements and asets they contain.
+
+### Purchase an asset
+
+`POST /elements/common/purchase-asset{:bash}`
+
+Initiates the purchase of an asset. Define the asset you want to purchase by it's type and ID.
+The request will fail if your account does not have enough credit to cover the cost of the asset.
+
+**Request body**:
+
+```json
+{
+  "assetType": "string",
+  "assetId": "uuid"
+}
+```
+
+**Response**:
+
+```json
+{
+  "data": {
+    "charge": {
+      // Charge details object
+    },
+    "transfer": {
+      // Transfer details object
+    }
+  },
+  "error": null
+}
+```
+
+---
+
+## Earth
+
+The Earth layer is where data is stored and managed on Ouro.
+You can perform CRUD operations on any type of file or structured dataset (relational database table).
+
+Although handled as a single asset type, there are two main stages of Dataset:
+
+- Base, refered to as **File**
+- Structured, often just refered to as a **Dataset**
+
+### Create a dataset from a file
+
+`POST /elements/earth/create/from-file{:bash}`
+
+Creates a new dataset from a file with a size limit of 5GB.
+
+<Callout>
+  Tabular data like `.csv` files will automatically be transformed into
+  structured datasets
+</Callout>
+
+**Request body**:
+
+```json
+{
+  "metadata": {
+    "id": "uuid",
+    "type": "string",
+    "path": "string"
+  },
+  "preview": [],
+  "visibility": "string",
+  "monetization": "string",
+  "price": "number",
+  "name": "string",
+  "description": "string"
+}
+```
+
+The metadata object is the response returned after a file is added.
+Soon, the file upload to create dataset flow will be a single step instead of first having to upload the file, then create a dataset from it.
+
+<Callout type="warning">
+  When possible, prefer to use one of the client libraries so that schema
+  validation and other helpful utilities can help you.
+</Callout>
+
+**Response**:
+
+```json
+{
+  "data": {
+    "id": "uuid",
+    "name": "glob",
+    "description": "The first asset ever added to Ouro!",
+    "visibility": "public",
+    "asset_stage": "base"
+    // More fields...
+  },
+  "warning": {},
+  "error": null
+}
+```
+
+---
+
+### Create a dataset from a schema
+
+`POST /elements/earth/create/from-schema{:bash}`
+
+Creates a new dataset based on a predefined schema defined by a `CREATE TABLE` statement in SQL.
+This route is a good option for when you need a high level of control over the structure and behavior of the created structured dataset.
+
+<Callout>
+  Use available `PUT` methods to load data into the dataset in a subsequest
+  request.
+</Callout>
+
+**Request body**:
+
+```json
+{
+  "dataset": {
+    "queryString": "string",
+    "visibility": "string",
+    "monetization": "string",
+    "price": "number",
+    "description": "string"
+  }
+}
+```
+
+For example, a `queryString` may look like the following. You don't need to worry about newlines or other spacing issues as long as you have valid SQL.
+Also, don't even try any SQL injection attacks - they won't work!
+
+```sql
+CREATE TABLE datasets.iris_dataset (
+    id SERIAL PRIMARY KEY,
+    sepal_length_cm DECIMAL(3, 1),
+    sepal_width_cm DECIMAL(3, 1),
+    petal_length_cm DECIMAL(3, 1),
+    petal_width_cm DECIMAL(3, 1),
+    species VARCHAR(20)
+);
+```
+
+The name and description of the created dataset will be infered from the SQL statement defined by the `queryString` string.
+In this example, the name of the created dataset will be `iris_dataset`.
+
+**Response**:
+
+```json
+{
+  "data": {
+    "id": "uuid",
+    "name": "string",
+    "description": "string",
+    "visibility": "public",
+    "asset_stage": "structured"
+    // More fields...
+  },
+  "error": null
+}
+```
+
+---
+
+### Create a dataset from a Service
+
+`POST /elements/earth/create/from-service{:bash}`
+
+Creates a new dataset by importing data from an external service connected in the Water layer.
+If the service requires authentication, be sure to configure that with the Service asset before using this route.
+
+It currently only supports structured-dataset-type responses.
+For example, a Service should return an array of objects that can be loaded as rows of a dataset.
+
+The schema of the created dataset will automatically be inferred from the response schema.
+
+**Request body**:
+
+```json
+{
+  "route": {
+    "id": "uuid"
+  },
+  "dataset": {
+    "locations": "string",
+    "name": "string",
+    "description": "string",
+    "visibility": "string",
+    "monetization": "string",
+    "price": "number"
+  }
+}
+```
+
+<Callout type="warning">
+
+We don't currently support passing any parameters (URL, query, POST body, etc.) to Routes through this interface, but it's on the roadmap.
+
+</Callout>
+
+`dataset.location` field allows you to specify where on the Route response to expect the data array.
+Many APIs, Ouro's included, return API responses as objects with additional metadata and information beyond the requested resource.
+Set this value to a string with the location specified in dot notation.
+
+For example, `data.values` will get the array of values located on the following multi-level object:
+
+```json
+{
+  "data": {
+    "type": "array",
+    "values": [
+      { "id": 0, "value": 10 },
+      { "id": 1, "value": 14 }
+      // More values...
+    ]
+  },
+  "error": null
+}
+```
+
+**Response**:
+
+```json
+{
+  "data": {
+    "id": "uuid",
+    "name": "string",
+    "description": "string",
+    "visibility": "public",
+    "asset_stage": "structured"
+    // More fields...
+  },
+  "error": null
+}
+```
+
+---
+
+### Read context datasets
+
+`GET /elements/earth/assets{:bash}`
+
+Retrieves a list of all of the authenticated user's datasets, including assets that have been shared with them and assets they have purchased.
+
+When a user has an organization context set, they will get assets that are specific to that context.
+
+---
+
+### Read a dataset
+
+`GET /elements/earth/assets/:id{:bash}`
+
+Retrieves details about a specific dataset.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+---
+
+### Read a dataset's data
+
+`GET /elements/earth/assets/:id/data{:bash}`
+
+Retrieves the data contained within a specific dataset. Depending on the dataset stage, you will either get a URL pointing to the underlying data, or
+
+- **Base datasets** return a secure URL that you can use to access the file data
+- **Structured datasets** return the data as an array of objects
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+---
+
+### Read a dataset's schema
+
+`GET /elements/earth/assets/:id/schema{:bash}`
+
+Retrieves the schema of a specific dataset.
+Specifies the columns of the dataset and their datatype, as well as any foreign key and index information.
+
+Currently only has relevant data for structured datasets.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+---
+
+### Read a dataset's stats
+
+`GET /elements/earth/assets/:id/stats{:bash}`
+
+Provides statistical information about a specific dataset.
+
+For structured datasets, information like row count is returned.
+For files, you get extended file metadata like file size and type.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+---
+
+### Read a dataset's permissions
+
+`GET /elements/earth/assets/:id/permissions{:bash}`
+
+Retrieves the permissions settings of a specific dataset.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+---
+
+### Share a dataset
+
+`PUT /elements/earth/assets/:id/share{:bash}`
+
+Updates permission settings for a specific dataset by adding the specified user.
+Only users with admin permissions on the dataset have the ability to share a dataset.
+
+Permission grants the user a `read`, `write`, or `admin` role on the asset as specified.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the requested dataset.
+
+**Request body**:
+
+```json
+{
+  "permission": {
+    "user": {
+      "user_id": "uuid"
+    },
+    "role": "string"
+  }
+}
+```
+
+---
+
+### Delete a dataset
+
+`DELETE /elements/earth/assets/:id{:bash}`
+
+Deletes a specific dataset. Only users with admin permissions on the dataset have the ability to delete a dataset.
+
+**URL parameters**:
+
+- `id` (uuid). The ID of the dataset to delete.
+
+---
+
+## Water
+
+## Air
+
+## Fire

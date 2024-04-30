@@ -1,0 +1,39 @@
+
+Routes for finding and discovering content from across the platform.
+
+## Feed
+
+### Read feed
+
+`GET /feed{:bash}`
+
+Retrieves the feed for the authenticated user.
+Returns a list of assets, with potentially mixed asset types included in the list.
+Use the `assetType` key to determine what kind of asset each object is.
+
+**Query parameters**:
+
+- `page` (number) - Optional. Retrieves the given page of assets.
+
+**Response**:
+
+```json
+{
+  "data": [
+    {
+      "assetType": "dataset",
+      "name": "glob",
+      "description": "The first asset ever added to Ouro!",
+      "visibility": "public"
+      // More fields...
+    }
+    // Continued...
+  ],
+  "metadata": { "page": "int", "pageSize": "int", "hasAnotherPage": "boolean" },
+  "error": null
+}
+```
+
+---
+
+## Search

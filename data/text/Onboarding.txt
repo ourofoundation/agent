@@ -1,0 +1,132 @@
+
+In this section, we'll walk you through the process of creating an account, logging in, and navigating the platform.
+We'll also cover the steps for becoming a monetized creator and setting up your payment information.
+
+## Creating an Ouro account
+
+To create an account, follow these steps:
+
+1. Visit the Ouro website and click on the "Launch app" button in the header.
+2. Fill in the required information, including your email address, and desired password.
+3. Read and accept the [Terms of Service](/legal/terms) and [Privacy Policy](/legal/privacy).
+4. Click on the "Sign in" button to complete the registration process.
+   {/* 5. Check your email inbox for a verification message and click on the provided link to confirm your account. */}
+
+Once your account is verified, you can log in and start using Ouro's web interface.
+
+## Logging in to the web interface
+
+To log in to the web interface:
+
+1. Navigate to the Ouro website and click on the "Launch app" button in the header.
+2. Enter your registered email address and password.
+3. Click on the "Sign in" button to access your account.
+
+## Navigating the platform
+
+After logging in, you'll be directed to the Ouro feed, a stream of relevant content from the four layers of the platform.
+
+The main navigation menu is located on the left side of the screen, allowing you to switch between the different areas of the platform:
+
+- **Earth**: Access datasets, files, and contribute your own data.
+- **Water**: Discover APIs and integrate Services into your workflow.
+- **Air**: Engage in conversations, create posts, and collaborate with other users.
+- **Fire**: Build solutions, create blueprints, and implement projects.
+
+Navigate to the Search page on the sidebar to quickly find specific datasets, APIs, posts, or solutions across the entire platform.
+
+## Setting up payment information
+
+To access and utilize monetized assets on Ouro, you'll need to add a payment method.
+This allows Ouro to securely process charges for the assets you purchase.
+You have the flexibility to add or remove payment methods at any time, providing you with complete control over your billing preferences.
+
+If you haven't already added a payment method, you can easily do so during the checkout process when purchasing a monetized asset.
+
+We have partnered with Stripe, a leading payment processing infrastructure, to handle all financial transactions on our platform.
+By relying on Stripe's expertise and robust security measures, we can ensure that your payment and personal billing details are kept safe and confidential.
+
+<Callout>
+
+Ouro does not store any sensitive payment information on our own servers.
+Instead, all payment data is securely managed and processed by Stripe, adhering to industry-standard security practices.
+This approach allows us to focus on providing a seamless user experience while leaving the complexities of payment processing to the experts at Stripe.
+
+</Callout>
+
+To configure your [payment settings](/app/settings/payments):
+
+1. Go to the "Settings" section by clicking the link in the sidebar or from the dropdown menu at the top right of the page.
+2. Click on the "Payments" tab.
+3. Click the "Manage payments" button to be redirected to your Stripe management dashboard.
+4. Review and update your payment information, such as your default payment method.
+5. Save your changes and return to Ouro.
+
+## Become a monetized creator
+
+Monetized creators on Ouro have the opportunity to earn revenue by providing valuable assets to the community.
+If you're interested in monetizing your work, Ouro offers a range of monetization options to suit your needs.
+To learn more about these options and how monetization works on the platform, please refer to our comprehensive [Monetization docs](/docs/platform/monetization).
+
+To become a monetized creator on Ouro, you'll need to complete a few simple steps:
+
+1. **Set up your Ouro account**: If you haven't already, create an account on the Ouro platform. This will serve as your foundation for sharing and monetizing your assets.
+
+2. **Navigate to your settings**: Once logged in, access your account settings and locate the "Payments" section. This is where you'll initiate the process of becoming a monetized creator.
+
+3. **Start the onboarding process**: Within the "Payments" section, click on the "Become a monetized creator" button. This will kick off the onboarding process, guiding you through the necessary steps to set up your monetization capabilities.
+
+4. **Integrate with Stripe**: As part of the onboarding process, you'll be redirected to Stripe, our trusted payment processing partner. Follow the prompts to create a Stripe account and provide the required information. This typically includes your business details and bank account information for receiving payments.
+
+5. **Begin monetizing your assets**: Once you have completed the onboarding, you'll be ready to start monetizing your assets. You can add prices and select monetization options for your datasets, APIs, solutions, or any other valuable assets you want to offer to the community.
+
+By completing these steps, you'll be well on your way to earning income from your expertise and contributions on Ouro.
+Stripe's secure payment processing and comprehensive onboarding process ensure that you can monetize your assets with confidence, while also complying with relevant tax requirements.
+
+Remember, monetization is just one aspect of being a successful creator on Ouro.
+Engaging with the community, providing high-quality assets, and continuously improving your offerings are all key to building a thriving presence on the platform.
+By combining your expertise with Ouro's monetization tools and supportive community, you'll be well-positioned to achieve your goals and make a meaningful impact in your field.
+
+## Accessing Ouro from other interfaces
+
+While the web interface is a great way to get started with Ouro, there are other powerful ways to interact with the platform that may better suit your needs and workflow.
+If you're a developer, data scientist, or integration specialist, you might want to leverage Ouro's capabilities programmatically or integrate Ouro into your existing systems and applications.
+
+To enable seamless integration and programmatic access, Ouro provides a comprehensive Web API, as well as programming interfaces in popular languages like Python and JavaScript.
+These interfaces allow you to authenticate as your Ouro account and interact with the platform's features and functionalities using familiar tools and frameworks.
+
+### Generate an API key
+
+To get started with these alternative interfaces, you'll need to generate an API key.
+An API key is a unique identifier that allows you to authenticate your requests and securely access Ouro's API endpoints.
+You can generate an API key from your [Settings](/app/settings/api-keys):
+
+1. **Log in to your Ouro account**: Start by logging in to your Ouro account through the web interface.
+
+2. **Navigate to the settings**: Once logged in, click on your profile avatar in the top-right corner of the screen and select "Settings" from the dropdown menu.
+
+3. **Access the API keys tab**: In the settings menu, locate and click on the "API Keys" tab. This is where you'll manage your API keys.
+
+4. **Generate a new API key**: Click on the "Create a key" button. Ouro will prompt you to provide a name or description for your API key. Choose a meaningful name that reflects the purpose or project you'll be using the key for.
+
+5. **Copy and save the API key**: Once you've provided a name and confirmed the key generation, Ouro will display your newly created API key. Make sure to copy this key and store it securely.
+
+With your API key in hand, you're ready to start interacting with Ouro programmatically.
+Here are a few examples of what you can do:
+
+- **Web API**: Use your API key to authenticate requests to Ouro's Web API endpoints. You can make HTTP requests to retrieve data, create and manage assets, execute services, and more. The Web API follows RESTful principles and supports JSON payloads, making it easy to integrate with various programming languages and frameworks.
+
+- **Python Interface**: Ouro provides a Python package that wraps the Web API and offers a Pythonic way to interact with the platform. With the Python interface, you can leverage the power of Python's rich ecosystem to process data, build machine learning models, and create data-driven applications that integrate seamlessly with Ouro.
+
+- **JavaScript Interface**: If you're working on web applications or Node.js projects, Ouro's JavaScript interface allows you to interact with the platform using familiar JavaScript syntax and conventions. You can easily make asynchronous requests, handle responses, and build dynamic and interactive applications that harness Ouro's capabilities.
+
+To dive deeper into each of these interfaces and explore the available functionalities, make sure to check out the dedicated documentation:
+
+- [Web API docs](/docs/developers/api)
+- [Python docs](/docs/developers/client-libraries)
+- [JavaScript docs](/docs/developers/client-libraries)
+
+These resources provide detailed information on authentication, API endpoints, code examples, and best practices to help you get the most out of Ouro's programmatic interfaces.
+
+By leveraging Ouro's API and programming interfaces, you can unlock a whole new level of possibilities and integrate Ouro's powerful features into your existing workflows and applications.
+Whether you're automating data processing, building custom analytics tools, or creating innovative solutions, Ouro's flexible and extensible interfaces empower you to bring your ideas to life and achieve your goals more efficiently.

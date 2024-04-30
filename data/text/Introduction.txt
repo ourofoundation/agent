@@ -1,0 +1,70 @@
+
+Welcome to the Ouro API. You can use our API to access the functionality of the Ouro platform and build it into your own applications.
+
+The Fire layer of the platform introduces the concept of Blueprints. Blueprints are ways to orchestrate the three other layers of the platform (Earth, Air, and Water) to create a specific application. The Ouro API is the primary way to interact with the Fire layer of the platform.
+
+<Callout>
+  You can find an introduction to the Fire layer in the
+  [Platform](/docs/platform/elements#fire) section of the docs.
+</Callout>
+
+## Authentication
+
+The Ouro API uses API keys to authenticate requests. You can view and manage your API keys in your [User settings](/app/settings/api-keys).
+
+The Ouro API uses personal access tokens for authentication. Once you've created an account on Ouro, you can create API keys in your account settings.
+
+A personal access token will allow you to make requests to the Ouro API on behalf of your account, inheriting all assets and permissions automatically.
+
+### Obtaining an Access Token
+
+Follow these steps to obtain and use your access token:
+
+1. **Generate Token**<br/>Log into your account on the WeatherAPI website and navigate to Account Settings. Under the 'API' section, generate a new Personal Access Token.
+
+2. **Use Token in Requests**<br/>Include your personal access token in the HTTP request header. The header should be formatted as `Authorization: Bearer YOUR_ACCESS_TOKEN`.
+
+Example of how to include the token in a request:
+
+```http
+GET /weather/current?location=London
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Remember to keep your access token secure and never share it publicly. If you suspect your token has been compromised, revoke it immediately and generate a new one.
+
+Your API keys carry many privileges, so be sure to keep them secure. Don't share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
+
+## Error Codes
+
+Stripe uses conventional HTTP response codes to indicate the success or failure of an API request.
+In general: Codes in the `2xx` range indicate success.
+Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.).
+Codes in the `5xx` range indicate an error with Stripe's servers (these are rare).
+
+| Code  | Description                                                                                                          |
+| ----- | -------------------------------------------------------------------------------------------------------------------- |
+| `200` | Everything worked as expected.                                                                                       |
+| `400` | Bad Request - The request was unacceptable, often due to missing a required parameter.                               |
+| `401` | Unauthorized - No valid API key provided.                                                                            |
+| `402` | Request Failed - The parameters were valid but the request failed.                                                   |
+| `403` | Forbidden - The API key doesn't have permissions to perform the request.                                             |
+| `404` | Not Found - The requested resource doesn't exist.                                                                    |
+| `409` | Conflict - The request conflicts with another request (perhaps due to using the same idempotent key).                |
+| `429` | Too Many Requests - Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. |
+| `5xx` | Server Errors - Something went wrong on Ouro's end.                                                                  |
+
+## Rate Limits
+
+The Ouro API uses a number of safeguards against bursts of incoming traffic to help maximize its stability. Users who send many requests in quick succession might see error responses that show up as status code `429`. We have several limiters in the API, including:
+
+- A **rate limiter** that limits the number of requests received by the API within any given second.
+  For most APIs, Ouro allows up to 100 read operations per second and 100 write
+  operations per second.
+- For the Files API, Ouro allows up to 20 read operations per second and 20 write operations per second in both live mode and test mode. Live mode and test mode limits are separate.
+- For the Search API, Ouro allows up to 20 read operations per second which applies for all search endpoints in both live mode and test mode. Live mode and test mode limits are separate.
+- A concurrency limiter that limits the number of requests that are active at any given time. Problems with this limiter are less common compared to the request rate limiter, but it’s more likely to result in resource-intensive, long-lived requests.
+
+Treat these limits as maximums and don’t generate unnecessary load. See Handling limiting gracefully for advice on handling 429s. If you suddenly see a rising number of rate limited requests, please contact support.
+
+We may reduce limits to prevent abuse, or increase limits to enable high-traffic applications. To request an increased rate limit, please contact support. If you’re requesting a large increase, contact us 6 weeks in advance of when you’ll need the increased rate limit.

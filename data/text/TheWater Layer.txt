@@ -1,0 +1,280 @@
+
+The Water layer is the hub for API integration and data processing within the Ouro ecosystem.
+It enables users to create, share, and utilize custom applications and services, extending the functionality of the platform.
+The primary focus of the Water layer is to facilitate seamless interaction between assets on Ouro and external APIs, empowering users to leverage a wide range of data processing and transformation capabilities.
+
+The Water layer is supported by two main asset types: Services and Routes.
+
+## Services
+
+The key feature of the Water layer is the ability for users to integrate their own custom APIs, called Services. These APIs can be created and maintained independently of Ouro, giving users the freedom and flexibility to develop capabilities that meet their specific needs. To integrate a custom API, users need to ensure that the service is accessible from the web via a well-defined HTTP API.
+
+Services are collections of Routes that share the same base URL and additional configurations like authentication. Each Service represents a unique API that can be utilized within the Ouro ecosystem.
+
+To create a Service, users can either use the [Water Create](/app/elements/water/create) form within the Ouro web interface or leverage one of the interface-specific routes/methods described in the interface-specific documentation.
+
+### Deploying your service
+
+Before you can bring your service to Ouro, it needs to be accessible from the internet.
+The best way to achieve this is by setting up a web server (if you haven't already) and deploying it to an online platform that simplifies web service hosting.
+This approach allows you to focus on the functionality of your service rather than worrying about infrastructure and deployment.
+
+You have several options for hosting your service:
+
+1. Online service platforms (easiest)
+2. Cloud environments like AWS or GCP (harder)
+3. Self-hosting on your own machine (hardest)
+
+We recommend the checking out the following online service platforms:
+
+- [Fly.io](https://fly.io/)
+- [Render](https://render.com/)
+- [Railway](https://railway.app/)
+- [Vercel](https://vercel.com/)
+- [Heroku](https://www.heroku.com/)
+- [Porter](https://www.porter.run/)
+- [Coolify.io](https://coolify.io/)
+- [DigitalOcean](https://www.digitalocean.com/)
+- [platform.sh](https://platform.sh/)
+- [Upsun](https://upsun.com/)
+
+Many of these services are "Serverless," which means you only pay for the resources consumed when your service is used, helping to keep costs down. Additionally, autoscaling is a great feature offered by many of these platforms, ensuring that your service can handle varying levels of traffic without manual intervention.
+
+## Routes
+
+A Route is an individual endpoint within a Service that performs a specific action in response to an HTTP web request. When defining a Route, the creator specifies various details such as:
+
+- HTTP verb (GET, POST, PUT, DELETE, etc.)
+- Endpoint location
+- Query and URL parameters
+- Request body schema and requirements
+- Header type
+- Response codes and schemas
+- Endpoint descriptions and usage examples
+
+Routes are the building blocks of a Service, allowing users to define the specific functionality and behavior of each endpoint within the API.
+
+## Creating a Service
+
+Currently, Ouro supports REST APIs defined by an OpenAPI specification. OpenAPI is a widely adopted standard for describing and documenting RESTful APIs. To create a Service in Ouro, users need to provide an OpenAPI specification file, which can be in either JSON or YAML format.
+
+### From an OpenAPI specification
+
+When creating a Service from an OpenAPI specification file, Ouro automatically extracts all the necessary information to define the Service and its associated Routes. This includes:
+
+- Base URL: The root URL of the API, which serves as the common prefix for all the Routes within the Service.
+- Authentication requirements: The authentication methods supported by the API, such as API keys, OAuth, or JWT tokens.
+- Response codes and schemas: The expected HTTP response codes and the structure of the response data for each Route.
+- Endpoint request schemas and definitions: The structure and format of the request data required by each Route, including query parameters, request bodies, and headers.
+- Endpoint descriptions and usage examples: Detailed descriptions and examples illustrating how to use each Route effectively.
+
+#### Generating an OpenAPI spec with FastAPI
+
+We recommend users expose their services with [FastAPI](https://fastapi.tiangolo.com/), a modern, fast (high-performance), web framework for building APIs with Python.
+
+Generating an OpenAPI specification with FastAPI is straightforward thanks to the built-in support for automatic API documentation using OpenAPI.
+
+To generate an OpenAPI spec with FastAPI:
+
+1. Define your API endpoints using FastAPI's decorators and [Pydantic](https://docs.pydantic.dev/latest/) models for request and response validation.
+2. Add descriptions to your API routes, parameters, and models using the description parameter in the decorators and Pydantic model fields.
+3. Use the response_model parameter in the API route decorators to specify the expected response model for each endpoint.
+4. Run your FastAPI application.
+5. Access the automatically generated OpenAPI specification at `/openapi.json` endpoint of your running application.
+
+For example, if your application is running at [hermes.ouro.foundation](https://hermes.ouro.foundation), you can access the OpenAPI specification at [hermes.ouro.foundation/openapi.json](https://hermes.ouro.foundation/openapi.json).
+
+By creating this spec, users can quickly and easily define and integrate their custom APIs as Services within Ouro.
+
+<Callout>
+
+Before adding the Service to the Water layer, you may want to modify the spec to mark any expected input or output asset types.
+See the following section on Side Effects for more details.
+
+</Callout>
+
+## Side Effects
+
+Services in Ouro run independently of the platform, providing developers with the flexibility to create and utilize them without limitations.
+This autonomy allows for a wide range of possibilities in terms of functionality and usage.
+
+One powerful aspect of Services is their ability to interact with the Ouro platform through the [Ouro API](/docs/developers/api).
+Service creators can leverage this functionality to perform create, read, update, and delete (CRUD) operations on assets within the platform.
+By integrating with the Ouro API, Services can dynamically manipulate and manage assets based on their specific requirements and logic.
+
+Alternatively, Ouro offers another approach that allows Service developers to rely on the platform for reading and creating assets.
+In this case, Service routes need to adhere to specific input and output formats based on the expected asset types.
+By accepting the correct input format and returning the appropriately formatted response, Services can seamlessly integrate with Ouro's asset management system.
+
+The choice between these two approaches has implications for asset ownership and permissions:
+
+1. Services using the Ouro API directly:
+
+   - When a Service uses the Ouro API from within its endpoints, it must authenticate using an Ouro API key associated with one of the Service creator's accounts.
+   - The Service will have access to assets based on the permissions granted to the associated account.
+   - Assets created by the Service will be owned by the account used for authentication.
+
+2. Services relying on Ouro for asset management:
+   - When a Service is configured with the correct input and output asset formats, Ouro handles the reading and creation of assets on behalf of the requesting user.
+   - The requesting user's permissions are used to determine access to assets.
+   - Assets created as a result of using the Service will be owned by the requesting user.
+
+### Specifying input and output asset types
+
+To facilitate seamless integration and data flow between Services and other assets within Ouro, users can specify metadata for each Route, indicating its compatibility with certain asset types as request inputs or response outputs.
+
+By providing this additional metadata, Ouro can understand and leverage the relationships between Services and other assets, enabling efficient data processing and workflow orchestration and recommendations.
+This allows for the creation of powerful data pipelines and the automation of complex tasks.
+
+<Callout>
+
+Specifying input and output asset types is optional, and Services can be integrated into Ouro without any modifications to their underlying functionality.
+This flexibility ensures that existing APIs can be seamlessly incorporated into the Ouro ecosystem.
+
+</Callout>
+
+Users have the freedom to utilize the inputs and outputs of a Service in any way they see fit within their workflows.
+Whether it's transforming data, generating insights, or triggering actions, Services provide a highly adaptable and extensible framework for building custom solutions.
+
+To specify a Route's compatible asset types, users can add custom tags to the OpenAPI specification. Here are a few examples:
+
+In a JSON spec:
+
+```json
+{
+  // ...
+  "/embeddings": {
+    "post": {
+      "summary": "Create an embedding",
+      "description": "Given some text, return the embedding for that text.",
+      "operationId": "createEmbedding",
+      "x-ouro-input-asset-type": "post"
+      // ... More fields
+    }
+  }
+}
+```
+
+In a YAML spec:
+
+```yaml
+/transform/transcribe:
+  post:
+    summary: Transcribe audio to text
+    description: Takes an audio file as input and returns a transcribed post.
+    operationId: transcribeAudio
+    x-ouro-input-asset-type: file
+    x-ouro-input-filter: metadata->type.in.(audio/mpeg,audio/wav)
+    x-ouro-output-asset-type: post
+```
+
+In the above examples, the custom tags `x-ouro-input-asset-type`, `x-ouro-input-filter`, and `x-ouro-output-asset-type` are used to specify the compatible asset types for the Routes. These tags provide additional metadata that Ouro can utilize to facilitate asset linking, data validation, and workflow orchestration.
+
+By leveraging the power of OpenAPI specifications and custom metadata tags, users can seamlessly integrate their custom APIs as Services within Ouro, enabling a rich ecosystem of data processing capabilities and fostering collaboration among users.
+
+## API authentication
+
+Ouro provides support for private or protected APIs that require authentication to access. This authentication process is separate from the authentication used to access the Ouro API itself. Instead, it is specific to the external service being integrated.
+
+To handle API authentication, Ouro allows users to configure their APIs with the necessary credentials. Once configured, Ouro securely stores the credentials and automatically includes them in the requests made to the protected API. This simplifies the authentication process for users, as they can access their configured APIs using their Ouro account without worrying about the specific authentication details.
+
+Ouro currently supports the following authentication methods:
+
+- **None**: No additional authentication configuration is supplied in requests.
+- **Personal Access Token**: A personal access token is a unique identifier that allows users to authenticate themselves to an external service. The token is included in the `Authorization` header of the HTTP request sent to the external service.
+
+<Callout type="warning">
+  We are continuously working to expand our support for additional
+  authentication methods. If you have a specific need, please let us know at
+  [/contact](/contact) so we can prioritize your requirements.
+</Callout>
+
+To ensure the security of user credentials, Ouro stores them in an encrypted database. Only the minimum necessary information is stored, and credentials are only accessed upon user request. Users have full control over their credentials and can delete access tokens from the platform at any time, which will remove them from Ouro's systems. Additionally, most services provide mechanisms to revoke access keys, allowing users to deactivate the credential's access.
+
+<Callout>
+  For more information on how we protect user information, please refer to our
+  [Privacy Policy](/legal/privacy) and [Terms of Use](/legal/terms).
+</Callout>
+
+### Using a domain whitelist to restrict access to your API
+
+Domain whitelisting is a security feature you can implement in your API server to restrict access to authorized platforms.
+By whitelisting specific domains, you ensure that only requests originating from trusted sources are allowed to interact with the API.
+This helps prevent unauthorized access and potential misuse of the API.
+
+This method is great for applications that don't need user management yet still should have access limited to them, either as private or monetized services.
+
+You can implement this in FastAPI with the following code:
+
+```python
+from fastapi import FastAPI, Request, HTTPException
+from starlette.middleware.base import BaseHTTPMiddleware
+
+app = FastAPI()
+
+WHITELISTED_DOMAIN = "https://api.ouro.foundation"
+
+class DomainWhitelistMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        referer = request.headers.get("Referer")
+        if referer and referer.startswith(WHITELISTED_DOMAIN):
+            return await call_next(request)
+        else:
+            raise HTTPException(status_code=403, detail="Access Forbidden")
+
+app.add_middleware(DomainWhitelistMiddleware)
+
+# Your API endpoints here
+```
+
+The domain to allow for proper integration with Ouro is [api.ouro.foundation](https://api.ouro.foundation).
+Once configured, you'll be able to use route configuration within Ouro to manage monetization and access permissions.
+
+## Ouro APIs
+
+In addition to custom API integration, Ouro provides a set of managed APIs that are available to all users. These APIs are maintained by Ouro and offer various functionalities to enhance the platform's capabilities. Some of these APIs are freely accessible, while others may require payment for usage.
+
+<Callout>
+  To learn more about asset monetization, please refer to the
+  [Fire](/docs/platform/elements#fire) section.
+</Callout>
+
+It's important to note that some of the APIs exposed by Ouro are used to support the platform's internal functionalities. These APIs are distinct from the Ouro API, which is used for interacting with the platform itself. For example, Ouro provides an API for uploading files to the platform, which is part of the Ouro API. However, there is also a separate API that converts raw data into structured datasets, which is available for users to integrate into their own services.
+
+<Callout>
+  Comprehensive documentation for the Ouro API can be found at
+  [/docs/developers/api-endpoints](/docs/developers/api-endpoints).
+</Callout>
+
+By offering a range of APIs, both custom and managed, the Water layer enables users to extend the functionality of Ouro and leverage powerful data processing capabilities. Whether it's integrating external services, manipulating data, or utilizing Ouro's internal APIs, the Water layer provides a flexible and extensible framework for building robust and efficient data processing pipelines.
+
+## API Metadata and Asset Linking
+
+To facilitate seamless integration and discoverability of APIs within the Ouro ecosystem, the Water layer introduces the concept of API metadata and asset linking.
+
+When creating an API asset in the Water layer, users can provide additional metadata that describes the purpose, functionality, and requirements of the API. This metadata includes information such as:
+
+- API name and description
+- Input parameters and data formats
+- Output data formats and structures
+- Authentication requirements
+- Usage examples and documentation
+
+By providing comprehensive metadata, users can make their APIs more discoverable and understandable to other users within the platform. This promotes collaboration, reusability, and knowledge sharing among the Ouro community.
+
+In addition to metadata, the Water layer allows users to link their APIs to other assets within Ouro. This is achieved through asset linking, where users can specify the relationships between their APIs and other relevant assets, such as datasets, posts, or even other APIs.
+
+Asset linking in the Water layer offers several benefits:
+
+- **Discoverability**: By linking an API to relevant datasets or posts, users can make their APIs more discoverable to others who are interested in similar topics or working with related data.
+- **Context**: Linking APIs to other assets provides context about how the API can be used, what data it operates on, and how it fits into the broader ecosystem of assets within Ouro.
+- **Collaboration**: Asset linking fosters collaboration by enabling users to build upon each other's work. For example, a user can create an API that processes data from a specific dataset, and others can discover and utilize that API to build more advanced data processing pipelines.
+- **Versioning and Updates**: When an API is updated or versioned, the asset linking mechanism allows users to track the dependencies and impact of those changes across related assets.
+
+The Water layer's API metadata and asset linking capabilities enhance the usability, discoverability, and interoperability of APIs within the Ouro ecosystem. By providing rich metadata and establishing connections between APIs and other assets, users can create a powerful network of data processing tools and services that drive innovation and collaboration.
+
+---
+
+The Water layer in Ouro represents a dynamic and flexible environment for API integration and data processing. With support for custom API integration, secure authentication, managed Ouro APIs, and asset linking, the Water layer empowers users to extend the capabilities of the platform and build sophisticated data processing workflows.
+
+By leveraging the Water layer, users can harness the power of external services, integrate them seamlessly into their Ouro projects, and collaborate with others to create innovative solutions. Whether it's processing complex datasets, automating data transformations, or building custom applications, the Water layer provides the tools and framework necessary to unlock the full potential of data-driven insights and decision-making within the Ouro ecosystem.

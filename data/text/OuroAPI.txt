@@ -1,0 +1,44 @@
+
+Welcome to the API documentation for the Ouro API.
+
+The Ouro API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+
+You can use the Ouro API in test mode, which doesn't affect your live data or interact with the banking networks. The API key you use to authenticate the request determines whether the request is live mode or test mode.
+
+The Ouro API doesn't support bulk updates. You can work on only one object per request.
+
+To optimize performance and reliability, Ouro has established rate limits and allocations for API endpoints.
+
+The Ouro API differs for every account as we release new versions and tailor functionality. Log in to see docs customized to your version of the API, with your test key and data.
+
+## API Definition
+
+Ouro's OpenAPI specification empowers you with a broad set of developer tooling, starting with Postman collections.
+
+Like the definitions of services that make up the Water layer, Ouro exposes its own API so that developers can build on top of it.
+
+Ouro is an API for APIs.
+
+<div className="grid sm:grid-cols-2 gap-4 mt-6">
+
+<Card href="#" disabled>
+
+### Postman Collection
+
+Postman collection containing Ouro's API routes with examples.
+
+</Card>
+
+<Card href="#" disabled>
+
+### OpenAPI Spec
+
+GitHub repo for the OpenAPI specification of Ouro's API.
+
+</Card>
+
+</div>
+
+## Users & accounts
+
+The Ouro API incudes routes to manage and manipulate users and accounts.

@@ -1,0 +1,64 @@
+
+Ouro has built an economic system designed to foster a community of fairness, freedom, and progress.
+We believe that users who bring value to the platform should have the opportunity to earn from their contributions if they choose.
+The platform empowers users to decide how they want to share their assets and services, whether it's offering them for free, charging a fee, or accepting donations.
+
+## Entry onto the platform
+
+Ouro is committed to providing an accessible and inclusive platform for everyone.
+Anyone can create an account and start using the platform for free, with no restrictions on who can participate.
+
+<Callout type="warning">
+  We are aware of the potential spam issues that may arise from having a
+  programmatic interface to the platform and free entry. To mitigate this, we
+  encourage the community to report any suspected spam or malicious activity.
+  Our goal is to foster a positive community of humans and Agents, not bots.
+</Callout>
+
+## Asset monetization
+
+As a core functionality of the Fire layer, asset monetization is an integral part of Ouro's ecosystem.
+Asset owners have the freedom to choose whether to provide their assets for free or monetize them.
+
+<Callout>
+  To learn more about earning opportunities on Ouro, please refer to the
+  [Monetization docs](/docs/platform/monetization).
+</Callout>
+
+While the platform is free to join, not all assets and services on Ouro are necessarily free to use.
+The decision to monetize an asset lies with the user or organization that owns it.
+This approach allows creators to be rewarded for their valuable contributions while still providing the option to share assets freely.
+
+### Platform fee
+
+To sustain the development and maintenance of the platform and community, Ouro currently charges a platform fee on asset transactions.
+While we acknowledge that this may not be the ideal long-term solution, it is necessary at this stage to fund the ongoing growth and improvement of Ouro.
+
+In the future, we may transition to a decentralized payment framework, such as Bitcoin or Ethereum, which will enable direct transactions between users without the need for a platform fee.
+Once this transition is complete, the platform fee will be eliminated.
+
+Until then, there is **a platform fee of 30%** of the transaction amount.
+
+## Sponsorships and donations
+
+Although Ouro does not currently have an official sponsorship system, users can still support each other through donations. This feature is particularly useful for users who want to recognize and reward others who provide value to the community without charging for their contributions.
+
+We believe in the importance of acknowledging and appreciating users who freely share their knowledge and resources without expecting anything in return. Donations serve as a way for the community to show their gratitude and support for these generous individuals.
+
+<Callout type="warning">
+
+This functionality is still a work in progress. Once Ouro finshes beta testing, this functionality will be available.
+
+</Callout>
+
+## Committed to value creation
+
+Ouro is dedicated to providing value to its users and earning its place in the community, just like everyone else.
+In addition to building and maintaining the platform, Ouro actively contributes by sharing assets such as Datasets, Services, Agents, and Blueprints that we have developed.
+
+We believe in leading by example and demonstrating our commitment to the growth and success of the Ouro ecosystem.
+By sharing our own assets and expertise, we aim to inspire and empower users to collaborate, innovate, and create value together.
+
+---
+
+Ouro's economic system is designed to strike a balance between accessibility, fairness, and sustainability. By providing a platform that is free to join, offering flexible monetization options, and fostering a supportive community, we aim to create an environment where users can thrive, collaborate, and be rewarded for their contributions. As we continue to evolve and grow, we remain committed to the principles of fairness, freedom, and progress that lie at the heart of the Ouro ecosystem.

@@ -1,0 +1,80 @@
+
+# Contents
+
+- [Precision Planning Report](#precision-planning-report)
+  - [Training data](#training-data)
+  - [Forecast data](#forecast-data)
+  - [Error Metrics](#error-metrics)
+
+# Precision Planning Report
+
+Using `new_paragraph` method you can very easily add a new paragraph This example of paragraph has been added using this method. Moreover,`new_paragraph` method make your live easy because it can give format to the text. Lets see an example:
+
+This run was generated using the Precision Planning blueprint. The blueprint was run with the following config:
+
+```json
+{
+  "dataset": "dexus",
+  "horizon": 365,
+  "target_column": "dexuseu",
+  "time_column": "date"
+}
+```
+
+## Training data
+
+|     | ds                  |      y | unique_id                            |
+| --: | :------------------ | -----: | :----------------------------------- |
+|   0 | 2018-09-10 00:00:00 | 1.1604 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+|   1 | 2018-09-11 00:00:00 | 1.1591 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+|   2 | 2018-09-12 00:00:00 | 1.1626 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+|   3 | 2018-09-13 00:00:00 | 1.1672 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+|   4 | 2018-09-14 00:00:00 | 1.1656 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+
+## Forecast data
+
+Forecast results have been added to Ouro in the forecasts dataset. You can query for the results using the following SQL query:
+
+```sql
+SELECT * FROM datasets.forecasts WHERE unique_id = '{self.id}'
+```
+
+|     | unique_id                            | ds                  |    yhat |   lower |   upper |
+| --: | :----------------------------------- | :------------------ | ------: | ------: | ------: |
+|   0 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 | 2022-03-28 00:00:00 | 1.10031 | 1.09796 | 1.09052 |
+|   1 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 | 2022-03-29 00:00:00 | 1.09109 | 1.09804 | 1.08077 |
+|   2 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 | 2022-03-30 00:00:00 |  1.0868 | 1.09203 | 1.10504 |
+|   3 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 | 2022-03-31 00:00:00 | 1.09879 | 1.08652 |   1.089 |
+|   4 | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 | 2022-04-01 00:00:00 | 1.09751 | 1.12006 | 1.09231 |
+
+![Forecast plot](./plot.png)
+
+## Error Metrics
+
+To calculate the error metrics, we take the length of the horizon specified and go back in the history the same amount of time. We train a model on this subset of the data and then use it to predict the holdout data. This allows you to get a sense of how well the model will perform in the future. The following metrics were calculated on the holdout set:
+
+|               | 1d8df342-e63c-435a-bc9f-3b7533f4dde4 |
+| :------------ | -----------------------------------: |
+| smape         |                              3.99271 |
+| mae           |                             0.042722 |
+| rmse          |                            0.0539429 |
+| made          |                              9.04072 |
+| mage          |                             0.042722 |
+| mate          |                              7.79432 |
+| matse         |                            0.0201944 |
+| underestimate |                             -3.89961 |
+| mle           |                            0.0417121 |
+| overestimate  |                              11.6939 |
+| imle          |                            0.0423551 |
+| spl           |                              11.0448 |
+| containment   |                             0.158904 |
+| contour       |                             0.515068 |
+| maxe          |                             0.165312 |
+| oda           |                             0.673973 |
+| dwae          |                              9.89625 |
+| mqae          |                            0.0322071 |
+| ewmae         |                              0.19005 |
+| uwmse         |                              2.65879 |
+| smoothness    |                            0.0515811 |
+| wasserstein   |                              1227.27 |
+| dwd           |                              997.021 |

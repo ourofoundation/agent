@@ -1,0 +1,96 @@
+
+## Organizations
+
+The primary functionality to organize users is through the use of Organizations. Organizations are a way to group users together and provide a way to manage access to resources.
+
+Most of the time, Organizations should correspond to real-world organizations. For example, if you work for a company called `Ouro`, you should create an Organization called `Ouro` and invite your co-workers to join it.
+
+Organizations can be created by any user. When a user creates an organization, they become the admin of that organization.
+
+<Callout>
+  You can create a new organization from
+  [/app/settings/organizations/create](/settings/organizations/create).
+</Callout>
+
+As an organization admin, you can:
+
+- Add and remove members
+- Manage member permissions and access to assets
+- Update organization settings like name, description, and logo
+
+<Callout>
+  You can see the organizations you belong to by checking
+  [/app/settings/organizations](/settings/organizations).
+</Callout>
+
+### User context
+
+As a user on Ouro, you can be a member of multiple organizations. You can switch between them using the organization switcher on the bottom left of the page in the sidebar.
+
+- **Personal context**: When you first log in, you will see your username in the bottom left of the page. This is your personal user context.
+- **Organizational context**: Once activated, you will see your context change to the organization you selected.
+  For example, if your username is `johndoe` and you are a member of the `Ouro` organization, you will see your username change to `johndoe@ouro`.
+
+When you switch context, you will see that the data available to you will change. This is because the data you see is scoped to the context you are currently viewing.
+
+<Callout>
+  You can switch between contexts by clicking on the context switcher on the
+  bottom left of the page in the sidebar.
+</Callout>
+
+### Creating assets
+
+When you create an asset, it will be created and owned by the context you currently have active. For example, if you are working within the `ouro` organizational context, and you create a new asset, it will be created in the `ouro` organization.
+
+Depending on the Organization's default settings, other members of the organization may be able to see or manage the asset you created.
+
+The user that creates the asset will be the owner of the asset. This means that they will have full access to the asset and its contents. They will also be able to manage the asset's content, visibility, and sharing settings.
+
+### Asset visibility
+
+Asset visibility determines who can see an asset and its contents. By default, assets created in an organization are visible to all members of the organization. This means that any member of the organization can see the asset and its contents.
+
+Permissions to modify an asset are a separate matter determined by the asset's visibility and the user's role within the organization.
+
+<Callout>
+  To learn more about asset permissions, see the [Asset
+  permissions](/docs/platform/teams-and-organizations#asset-permissions)
+  section.
+</Callout>
+
+If you want to restrict access to an asset, you can do so by changing the asset's visibility settings.
+
+There are four visibility settings for assets:
+
+- **Public**: Anyone on the platform can see the asset.
+- **Monetized**: Asset is discoverable but the content within requires a purchase to view.
+- **Organization**: Only members of the organization can see the asset.
+- **Private**: Only the asset owner and individually added users can see the asset.
+
+<Callout>
+  Setting the visibility of an asset to <strong>Organization</strong> will share
+  the asset with all members of the organization, including new members.
+</Callout>
+
+### Asset permissions
+
+Currently, only the owner of the asset has permission to modify an asset. This means that only the owner can change the asset's visibility, share it with other users, or delete it.
+
+In the future, we will add more granular permissions to allow for more fine-grained control over who can modify an asset.
+
+### Member roles
+
+Member roles are a way to manage access to resources within an organization. There are three member roles:
+
+- **Admin**: Admins have full access to all visible resources and settings within an organization. They can manage all aspects of membership, settings, and visible assets.
+- **Write**: Members have access to all visible resources within an organization. They can create, edit, and delete assets they have permissions to within the organization.
+- **Read**: Viewers have read-only access to all resources within an organization. They cannot create or delete assets.
+
+Only organization admins can manage member roles.
+
+## Teams
+
+<Callout type="warning">
+  Teams are still being development and will be available soon. Thank you for
+  your patience.
+</Callout>
